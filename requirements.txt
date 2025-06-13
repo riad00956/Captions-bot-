@@ -1,0 +1,61 @@
+====================================================================
+          AUTO-CAPTIONING TELEGRAM BOT REQUIREMENTS
+====================================================================
+
+[CORE FUNCTIONALITIES]
+1. Bilingual Caption Generation
+   - Auto-generate English/Bangla captions
+   - Command: /language en|bn
+
+2. Unlimited Unique Captions
+   - Template-based generation system
+   - 3 options per photo with random variants
+
+3. Photo Context Detection
+   - Supports: general, nature (expandable categories)
+
+4. User Commands
+   - /start : Initialize bot
+   - /help  : Show instructions
+   - /language en|bn : Set preference
+
+[TECHNICAL SPECIFICATIONS]
+1. Python 3.7+ (Compatible with 3.13)
+2. Required Libraries:
+   - python-telegram-bot>=20.0
+   - logging (built-in)
+
+3. File Structure:
+   - bot.py : Main application
+   - captions/ : Template directory (optional)
+
+[SETUP INSTRUCTIONS]
+1. Install dependencies:
+   pip install python-telegram-bot --upgrade
+
+2. Configure environment:
+   - Get Telegram Bot Token from @BotFather
+   - Replace 'YOUR_BOT_TOKEN' in bot.py
+
+3. Execution:
+   python bot.py
+
+[SAMPLE OUTPUT]
+ENGLISH:
+1. Living my best life! 🌟
+2. Mountains never go out of style 🏔️
+3. Today's adventure begins now! ✨
+
+BANGLA:
+1. আমার সেরা সময়! 😊
+2. পাহাড় কখনও পুরানো হয় না 🌿
+3. আজকের যাত্রা শুরু হলো 📸
+
+[NOTES]
+- Add more templates in CAPTION_TEMPLATES for variety
+- Expand WORD_BANK with additional vocabulary
+- For Pydroid3: Ensure internet permissions are enabled
+- Captions are generated dynamically (no database needed)
+
+[VERSION]
+1.0.0 | Last Updated: 2023-12-01
