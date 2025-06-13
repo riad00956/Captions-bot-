@@ -1,0 +1,80 @@
+====================================================================
+   AUTO-CAPTIONING TELEGRAM BOT - NETLIFY DEPLOYMENT REQUIREMENTS
+====================================================================
+
+[NETLIFY-SPECIFIC REQUIREMENTS]
+
+1. Serverless Function Configuration
+   - File: /netlify/functions/bot.js (Node.js)
+   - Runtime: Node.js 18.x
+   - Must handle Telegram webhooks via POST requests
+
+2. Environment Variables
+   - Required in Netlify Dashboard:
+     * TELEGRAM_BOT_TOKEN
+     * TELEGRAM_WEBHOOK_SECRET
+     * NODE_ENV=production
+
+3. Netlify.toml Configuration
+   - Required build settings:
+     ```
+     [build]
+       functions = "netlify/functions"
+     ```
+
+4. Webhook Setup
+   - Endpoint: /.netlify/functions/bot
+   - Must verify Telegram secret token
+
+[SHARED REQUIREMENTS]
+
+1. Core Bot Functionality
+   - Bilingual English/Bangla caption generation
+   - Template-based unlimited variants
+   - Photo context detection (nature/general)
+
+2. Technical Stack
+   - Backend: Node.js (Netlify Functions)
+   - Libraries:
+     * telegraf (Telegram bot framework)
+     * axios (for external API calls if needed)
+     * dotenv (environment variables)
+
+[DEPLOYMENT STEPS]
+
+1. Repository Setup
+   - Required files:
+     /netlify/functions/bot.js
+     /netlify.toml
+     /requirements.txt (this file)
+
+2. Netlify Configuration
+   - Build command: npm install
+   - Publish directory: (leave empty)
+   - Environment variables must be set
+
+3. Webhook Registration
+   - Set in Telegram via:
+     https://api.telegram.org/bot{TOKEN}/setWebhook?url={NETLIFY_URL}
+
+[LIMITATIONS]
+
+1. Netlify Free Tier Limits
+   - 125k requests/month
+   - 100s execution timeout
+   - No persistent storage
+
+2. Cold Starts
+   - Functions may have ~1-2s delay on first invocation
+
+[ALTERNATIVE HOSTING]
+
+For full Python implementation (not Netlify):
+- Use PythonAnywhere
+- Requires:
+  * requirements.txt with:
+    python-telegram-bot>=20.0
+    flask>=2.0
+
+[VERSION]
+netlify-1.0.0 | 2023-12-01
