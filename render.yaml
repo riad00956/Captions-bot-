@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: caption-tg-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: BOT_TOKEN
+        value: 7412420290:AAHKHOBf1yuyiQjwk1V_0WPgxIAgtWNUH6c
